@@ -1,0 +1,78 @@
+<div class="login-page" >
+  <div class="row justify-content-md-center">
+      <div class="col-md-4">
+        
+          <h1>Add expense</h1>
+          <br>
+          <form [formGroup]="expenseForm">
+              <div class="form-content">
+                  <div class="form-group">                    
+
+                      <div class="row">
+                          <div class='col-md-2'><label>Description</label></div>
+                          <div class='col-md-10'>
+                              <input type="text" name="description" formControlName="description" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Description"> 
+                          </div>     
+                      </div>
+
+                  </div>
+
+                  <div class="form-group">
+                      <div class="row">
+                          <div class='col-md-2'><label>Price</label></div>
+                          <div class='col-md-10'>
+                              <input type="text" name="price" formControlName="price" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Price"> 
+                          </div>     
+                      </div> 
+
+                  </div>
+
+
+                  <div class="form-group">
+                    
+                      <div class='col-md-2'>Paid By:</div>
+                      <div class='col-md-4'>     
+                          <select class="form-control" name="paidBy" formControlName="paidBy">
+                                <option *ngFor="let user of users" [value]="user.firstName">
+                                        {{user.firstName}}
+                                      </option>
+                          </select>          
+                      </div>
+
+                  </div>
+
+
+                  <div class="form-group">
+                    
+                    <div class='col-md-4'>Split Among:</div>
+                    <div class='col-md-6'>    
+                    <ng-multiselect-dropdown 
+                        [placeholder]="'Select'"
+                        [data]="users"
+                        [(ngModel)]="selectedItems"
+                        [settings]="dropdownSettings"
+                        (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"
+                      >
+                      </ng-multiselect-dropdown>      
+                    </div>
+
+                  </div>
+
+
+ 
+
+
+
+
+
+                 
+
+              </div>
+        
+              <button class="btn btn-primary" (click)="addExpense()">Add Expense</button>
+
+          </form>
+      </div>
+  </div>
+</div>

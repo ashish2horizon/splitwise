@@ -1,0 +1,8 @@
+.rounded-btn:hover,
+.rounded-btn:focus,
+.rounded-btn:active,
+.rounded-btn:visited {
+    color: rgb(22, 6, 6);
+    border: 2px solid rgb(29, 9, 9);
+    outline: none;
+}
